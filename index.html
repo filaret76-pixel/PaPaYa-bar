@@ -1,97 +1,101 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Papaya Bar and Coffee</title>
-  <style>
-    :root{--bg1:#ff9a9e;--bg2:#fad0c4;--card:#fff3e0;--accent:#ff7a59}
-    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:#111}
-    .wrap{max-width:980px;margin:24px auto;padding:20px}
-    header{background:rgba(255,255,255,0.9);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center}
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;color:#333}
-    .banner{margin:20px auto;padding:18px;border-radius:14px;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,0.08);text-align:center}
-    .time{font-weight:700;font-size:1.2rem}
-    .muted{opacity:0.85}
-    .cta{display:inline-block;margin-top:16px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
-    .whatsapp{background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,0.25)}
-    .telegram{background:#0088cc;color:#fff;margin-left:12px;box-shadow:0 8px 20px rgba(0,136,204,0.2)}
-    footer{margin-top:28px;text-align:center;opacity:0.9;font-size:0.9rem}
-    @media (max-width:480px){h1{font-size:22px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papaya Bar and Coffee — Ужин на Закате, Патонг</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1 id="site-name">Papaya Bar and Coffee 🌅</h1>
-      <p class="lead" id="site-desc">Романтический ужин на закате — Патонг</p>
-    </header>
+    
+    <section class="hero" id="home">
+        <h1>Papaya Bar and Coffee 🌅</h1>
+        <p>Романтический ужин на закате — Патонг, Таиланд</p>
+        
+        <div class="cta-buttons">
+            <a href="https://wa.me/НОМЕР_ТЕЛЕФОНА_В_МЕЖДУНАРОДНОМ_ФОРМАТЕ" target="_blank">📞 Забронировать через WhatsApp</a>
+            
+            <a href="https://t.me/ИМЯ_ПОЛЬЗОВАТЕЛЯ_TELEGRAM" target="_blank">💬 Открыть в Telegram</a>
+        </div>
+    </section>
 
-    <div class="banner" id="banner">
-      <div id="banner-content">Загрузка данных...</div>
-    </div>
+    <section id="about">
+        <h2 class="section-title">Papaya <span>Story</span></h2>
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <p>Papaya Bar — это больше, чем просто бар. Это идеальное место, где сочные тропические коктейли встречаются с самым захватывающим закатом на Патонге. Мы создали уютный уголок, чтобы каждый гость мог забыть о суете и насладиться идеальным тайским вечером. Свежайшие продукты, дружелюбный сервис и вид на море — вот наша формула идеального отдыха!</p>
+        </div>
+    </section>
 
-    <div style="text-align:center;">
-      <a id="wa-link" class="cta whatsapp" href="#" target="_blank">📞 Забронировать через WhatsApp</a>
-      <a id="tg-link" class="cta telegram" href="#" target="_blank">💬 Открыть в Telegram</a>
-    </div>
+    <section id="menu">
+        <h2 class="section-title">Наше <span>Меню</span></h2>
+        <div class="menu-grid">
+            
+            <div class="menu-item">
+                <h3>Закатный Смузи <span class="price">280 THB</span></h3>
+                <p>Фирменный тропический микс с манго, маракуйей и личи. Освежает после жаркого дня.</p>
+            </div>
+            
+            <div class="menu-item">
+                <h3>Тайская Классика <span class="price">150 THB</span></h3>
+                <p>Пад Тай с креветками или курицей на выбор. Максимально аутентичный вкус.</p>
+            </div>
+            
+            <div class="menu-item">
+                <h3>Papaya Sunrise <span class="price">320 THB</span></h3>
+                <p>Авторский коктейль на основе белого рома, гренадина и свежевыжатого апельсина. Бодрит!</p>
+            </div>
+            
+            <div class="menu-item">
+                <h3>Стейк на Гриле <span class="price">450 THB</span></h3>
+                <p>Сочный говяжий стейк с овощами гриль и нашим домашним соусом "Закат".</p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 40px;">
+            <a href="ССЫЛКА_НА_ПОЛНОЕ_МЕНЮ" target="_blank" class="cta-buttons">Смотреть все блюда</a>
+        </p>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Наша <span>Атмосфера</span></h2>
+        <div class="gallery-grid">
+            <img src="ФОТО_1_ВИД_С_ТЕРРАСЫ.jpg" alt="Вид с террасы">
+            <img src="ФОТО_2_ФИРМЕННЫЙ_КОКТЕЙЛЬ.jpg" alt="Фирменный коктейль">
+            <img src="ФОТО_3_ИНТЕРЬЕР.jpg" alt="Интерьер">
+            <img src="ФОТО_4_УЖИН.jpg" alt="Романтический ужин">
+            <img src="ФОТО_5_ПРИГОТОВЛЕНИЕ.jpg" alt="Бармен готовит">
+            <img src="ФОТО_6_ЗАКАТ.jpg" alt="Крупный план заката">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Где нас <span>Найти</span></h2>
+        <div class="contact-info">
+            <p><strong>Адрес:</strong> 123/45 Patong Beach Road, Phuket, Thailand (ищи желтую вывеску)</p>
+            <p><strong>Часы работы:</strong> Ежедневно с 17:00 до 01:00</p>
+            <p><strong>Телефон:</strong> +66 81 234 5678</p>
+        </div>
+        
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15764.12079088515!2d98.27838575!3d7.8824147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30503e91122a7f05%3A0x86b02a246875b47a!2sPatong%20Beach!5e0!3m2!1sru!2sth!4v1729352702755!5m2!1sru!2sth" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
 
     <footer>
-      © <span id="year"></span> Papaya Bar and Coffee — Ужин на закате, Патонг, Таиланд
+        <p>© 2025 Papaya Bar and Coffee. Сделано с любовью и HTML/CSS.
+            <br>
+            <a href="ССЫЛКА_НА_INSTAGRAM" target="_blank">Instagram</a> | 
+            <a href="ССЫЛКА_НА_FACEBOOK" target="_blank">Facebook</a>
+        </p>
     </footer>
-  </div>
 
-  <script>
-    const WA_NUMBER = '+66813209943'; // номер для WhatsApp
-    const TG_BOT = 'https://t.me/YourPapayaBot'; // поменяешь, когда создашь Telegram-бота
-
-    document.getElementById('year').innerText = new Date().getFullYear();
-    document.getElementById('tg-link').href = TG_BOT;
-
-    async function loadSite() {
-      try {
-        const res = await fetch('site.json');
-        if (!res.ok) throw new Error('no site.json');
-        const s = await res.json();
-        document.getElementById('site-name').innerText = s.name || 'Papaya Bar and Coffee';
-        document.getElementById('site-desc').innerText = s.description || document.getElementById('site-desc').innerText;
-        if (s.whatsapp) {
-          const wa = 'https://wa.me/' + encodeURIComponent(s.whatsapp.replace('+','')) + '?text=' + encodeURIComponent('Привет! Хочу забронировать столик на [дата] на [кол-во гостей]');
-          document.getElementById('wa-link').href = wa;
-        }
-        if (s.telegram) document.getElementById('tg-link').href = s.telegram;
-      } catch (e) { console.warn(e); }
-    }
-
-    async function loadEvent() {
-      const banner = document.getElementById('banner-content');
-      try {
-        const res = await fetch('events.json');
-        if (!res.ok) throw new Error('no events.json');
-        const e = await res.json();
-        const sunset = e.sunset_time || e.sunsetTime || e.sunset || null;
-        const date = e.date || (new Date().toISOString().slice(0,10));
-        let dinnerTime = e.dinner_time || e.dinnerTime || null;
-        if (!dinnerTime && sunset) {
-          const [hh, mm] = sunset.split(':').map(Number);
-          let dh = hh - 1; let dm = mm - 20;
-          if (dm < 0) { dm += 60; dh -= 1; }
-          if (dh < 0) dh = (dh + 24);
-          dinnerTime = String(dh).padStart(2,'0') + ':' + String(dm).padStart(2,'0');
-        }
-        if (sunset && dinnerTime) {
-          banner.innerHTML = `🌞 <strong>Закат сегодня</strong>: <span class=\"time\">${sunset}</span><br>🍽️ <strong>Ужин начинается</strong>: <span class=\"time\">${dinnerTime}</span><div class=\"muted\">(Дата: ${date})</div>`;
-        } else {
-          banner.innerText = 'Сегодняшние данные не доступны.';
-        }
-      } catch (err) {
-        banner.innerText = 'Не удалось загрузить данные о закате.';
-      }
-    }
-
-    loadSite();
-    loadEvent();
-  </script>
 </body>
 </html>
