@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Papaya Bar and Coffee</title>
+  <style>
+    :root{--bg1:#ff9a9e;--bg2:#fad0c4;--card:#fff3e0;--accent:#ff7a59}
+    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg1),var(--bg2));color:#111}
+    .wrap{max-width:980px;margin:24px auto;padding:20px}
+    header{background:rgba(255,255,255,0.9);padding:18px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,0.12);text-align:center}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:#333}
+    .banner{margin:20px auto;padding:18px;border-radius:14px;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,0.08);text-align:center}
+    .time{font-weight:700;font-size:1.2rem}
+    .muted{opacity:0.85}
+    .cta{display:inline-block;margin-top:16px;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+    .whatsapp{background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,0.25)}
+    .telegram{background:#0088cc;color:#fff;margin-left:12px;box-shadow:0 8px 20px rgba(0,136,204,0.2)}
+    footer{margin-top:28px;text-align:center;opacity:0.9;font-size:0.9rem}
+    @media (max-width:480px){h1{font-size:22px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1 id="site-name">Papaya Bar and Coffee 🌅</h1>
+      <p class="lead" id="site-desc">Романтический ужин на закате — Патонг</p>
+    </header>
+
+    <div class="banner" id="banner">
+      <div id="banner-content">Загрузка данных...</div>
+    </div>
+
+    <div style="text-align:center;">
+      <a id="wa-link" class="cta whatsapp" href="#" target="_blank">📞 Забронировать через WhatsApp</a>
+      <a id="tg-link" class="cta telegram" href="#" target="_blank">💬 Открыть в Telegram</a>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Papaya Bar and Coffee — Ужин на закате, Патонг, Таиланд
+    </footer>
+  </div>
+
+  <script>
+    const WA_NUMBER = '+66813209943'; // номер для WhatsApp
+    const TG_BOT = 'https://t.me/YourPapayaBot'; // поменяешь, когда создашь Telegram-бота
+
+    document.getElementById('year').innerText = new Date().getFullYear();
+    document.getElementById('tg-link').href = TG_BOT;
+
+    async function loadSite() {
+      try {
+        const res = await fetch('site.json');
+        if (!res.ok) throw new Error('no site.json');
+        const s = await res.json();
+        document.getElementById('site-name').innerText = s.name || 'Papaya Bar and Coffee';
+        document.getElementById('site-desc').innerText = s.description || document.getElementById('site-desc').innerText;
+        if (s.whatsapp) {
+          const wa = 'https://wa.me/' + encodeURIComponent(s.whatsapp.replace('+','')) + '?text=' + encodeURIComponent('Привет! Хочу забронировать столик на [дата] на [кол-во гостей]');
+          document.getElementById('wa-link').href = wa;
+        }
+        if (s.telegram) document.getElementById('tg-link').href = s.telegram;
+      } catch (e) { console.warn(e); }
+    }
+
+    async function loadEvent() {
+      const banner = document.getElementById('banner-content');
+      try {
+        const res = await fetch('events.json');
+        if (!res.ok) throw new Error('no events.json');
+        const e = await res.json();
+        const sunset = e.sunset_time || e.sunsetTime || e.sunset || null;
+        const date = e.date || (new Date().toISOString().slice(0,10));
+        let dinnerTime = e.dinner_time || e.dinnerTime || null;
+        if (!dinnerTime && sunset) {
+          const [hh, mm] = sunset.split(':').map(Number);
+          let dh = hh - 1; let dm = mm - 20;
+          if (dm < 0) { dm += 60; dh -= 1; }
+          if (dh < 0) dh = (dh + 24);
+          dinnerTime = String(dh).padStart(2,'0') + ':' + String(dm).padStart(2,'0');
+        }
+        if (sunset && dinnerTime) {
+          banner.innerHTML = `🌞 <strong>Закат сегодня</strong>: <span class=\"time\">${sunset}</span><br>🍽️ <strong>Ужин начинается</strong>: <span class=\"time\">${dinnerTime}</span><div class=\"muted\">(Дата: ${date})</div>`;
+        } else {
+          banner.innerText = 'Сегодняшние данные не доступны.';
+        }
+      } catch (err) {
+        banner.innerText = 'Не удалось загрузить данные о закате.';
+      }
+    }
+
+    loadSite();
+    loadEvent();
+  </script>
+</body>
+</html>
